@@ -9,10 +9,30 @@
     <style>
         .grid-container {
             display: grid;
-            grid-template-columns: auto auto auto;
+            grid-template-columns: auto auto auto auto auto auto;
             grid-column-gap: 10px;
             grid-row-gap: 10px;
         }
+
+    @media screen and (max-width: 1000px) {
+        .grid-container {
+            grid-template-columns: auto auto;
+        }
+        .grid-item-1 {
+            grid-column: auto !important;
+            grid-row: auto !important;
+        }
+        @media screen and (max-width: 600px) {
+        .grid-container {
+            grid-template-columns: auto auto auto;
+        }
+        .grid-item-1 {
+            grid-column: auto !important;
+            grid-row: auto !important;
+        }
+        }
+    }
+    
         .melyna {
             background-color: cornflowerblue;
         }
@@ -23,19 +43,85 @@
             background-color: darkorange;
         }
         .grid-item-1 {
+            /* grid-column-start: 1;
+            grid-column-end: 3;*/ 
+        
+            grid-column: 1/ span 6;
+
+            grid-row: 1/ span 18;
+        }
+        /*.grid-item-2 {
             grid-column-start: 1;
             grid-column-end: 3;
-            grid-row-start: 1;
-            grid-row-end: 3;
+            grid-row-start: 5;
+            grid-row-end: 25;
+        }*/ 
+
+        .grid-item {
+            display: grid;
+            justify-content: center;
+            align-items: center;
         }
-        
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            grid-row-gap: 10px;
+        }
+        .grid-container-1 {
+            display: grid;
+            grid-row-gap: 10px;
+            grid-template-areas: 
+            "pirmas pirmas pirmas pirmas antras antras antras"
+            "trecias trecias trecias trecias trecias trecias trecias"
+            "ketvirtas penktas penktas penktas penktas penktas penktas"
+            "ketvirtas penktas penktas penktas penktas penktas penktas"
+        }
+
+        .grid-element-1 {
+            grid-area: pirmas;
+        }
+        .grid-element-2 {
+            grid-area: antras;
+        }
+        .grid-element-3 {
+            grid-area: trecias;
+        }
+        .grid-element-4 {
+            grid-area: ketvirtas;
+        }
+        .grid-element-5 {
+            grid-area: penktas;
+        }
+        .grid-container-2 {
+            display: grid;
+            grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+            grid-row-gap: 10px;
+        }
+        .grid1 {
+            grid-column: 1/ span 10;
+        }
+        .grid2 {
+            grid-column: 1/ span 3;
+        }
+        .grid3 {
+            grid-column: 4/ span 10;
+        }
+        .grid4 {
+            grid-column: 1/ span 5;
+        }
+        .grid5 {
+            grid-column: 6/ span 10;
+        }
+    
+
     </style>
 
 </head>
 <body>
     <div class="grid-container">
-        <div class="grid-item grid-item-1 melyna">W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using W3Schools, you agree to have read and accepted our terms of use, cookie and privacy policy.</div>
-        <div class="grid-item grid-item-2 orange">W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using W3Schools, you agree to have read and accepted our terms of use, cookie and privacy policy.</div>
+        <div class="grid-item grid-item-1 melyna">1</div>
+        <div class="grid-item grid-item-2 orange">2</div>
         <div class="grid-item grid-item-3 zalia">3</div>
         <div class="grid-item grid-item-4 orange">4</div>
         <div class="grid-item melyna">5</div>
@@ -52,7 +138,23 @@
         <div class="grid-item orange">16</div>
         <div class="grid-item melyna">17</div>
         <div class="grid-item zalia">18</div>
+        <div class="flex-container zalia">19</div>
     </div>
-    
+   <div class="grid-container-1">
+       <div class="grid-element-1 melyna">1</div>
+       <div class="grid-element-2 orange">2</div>
+       <div class="grid-element-3 zalia">3</div>
+       <div class="grid-element-4 orange">4</div>
+       <div class="grid-element-5 zalia">5</div>
+   </div>
+
+   <div class="grid-container-2">
+       <div class="grid1 100 orange">1</div>
+       <div class="grid2 30 zalia">2</div>
+       <div class="grid3 70 melyna">3</div>
+       <div class="grid4 50 zalia">4</div>
+       <div class="grid5 50 orange">5</div>
+
+   </div>
 </body>
 </html>
